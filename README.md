@@ -79,3 +79,29 @@ Created boris_bike_spec folder and added describe DockingStation do end
 Run test and it passed.
 
 ## Exercise 7
+
+We opened pry and required the docking_station.rb file.
+We created a docking_station variable.
+We called a method release_bike on the docking_station variable.
+This caused an error: NoMethodError: Undefined method release_bike
+
+## Exercise 8
+
+We added a test to the boris_bikes_spec file. This test says the class DockingStation should respond to the method release bike
+
+Rerunning rspec caused an error
+
+We added a method to docking_station.rb to release the bike
+The test passed.
+
+## Exercise 9
+
+- We added a bike.rb and bike_spec.rb file.
+- We added an empty test to bike_spec.rb file
+- Required bike.rb file
+- Put empty class into bike.rb
+- Ran the test and it passed
+- Added test to require working?
+- Ran test and it failed
+- Added a method working? to bike.rb
+- Ran test - passed  
