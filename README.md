@@ -104,4 +104,29 @@ The test passed.
 - Added test to require working?
 - Ran test and it failed
 - Added a method working? to bike.rb
-- Ran test - passed  
+- Ran test - passed
+
+## Exercise 10
+
+- We tested on pry to see what we got when we released a bike from the docking station. We got a NoMethodError because no instance of class was returned by release.bike method.
+
+- We decided to return a new instance of bike when we released a bike from teh docking station.
+
+- We added a test to expect that when we release a bike from the docking station a new bike class instance would be created and we can run the working? method on this bike instance.
+
+- We added a require relative from the docking station file to the bike file. This means that when the docking station file is opened, it can link to the bike class in the bike.rb file.
+
+- When checking if bike is working we created a response to say the bike is working.
+
+
+## Exercise 11
+
+Added 2 new user stories:
+
+As a member of the public
+So I can return bikes I've hired
+I want to dock my bike at the docking station
+
+As a member of the public
+So I can decide whether to use the docking station
+I want to see a bike that has been docked
