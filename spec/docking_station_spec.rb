@@ -2,6 +2,8 @@ require 'docking_station'
 
 describe DockingStation do
 
+  it do expect(DockingStation.release_bike).to respond_to} 
+
 
 end
 
