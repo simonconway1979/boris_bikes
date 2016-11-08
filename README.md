@@ -40,9 +40,11 @@ I'd like to see if a bike is working
 Person
 
   | see_if_working (true/false)
+  v
 
 Bike
 
   | release_bike (if true)
-
+  v
+  
 Docking Station
