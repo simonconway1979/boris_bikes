@@ -1,0 +1,8 @@
+we can require files in irb
+
+we do not get an NameError if we define the object that we are setting to a variable.
+
+We can create instances of empty classes.
+
+We noticed an undefined method error, when we called 'release_bike' on an instance
+of our empty docking station class.
