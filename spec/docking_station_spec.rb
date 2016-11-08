@@ -1,8 +1,8 @@
 require 'docking_station'
 
-describe DockingStation do
+RSpec.describe DockingStation do
 
-  it do expect(DockingStation.release_bike).to respond_to} 
+it {is_expected.to respond_to(:release_bike)}
 
 
 end
