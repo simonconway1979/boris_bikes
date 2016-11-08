@@ -1,0 +1,9 @@
+Error type  : Name error
+File path   : /Users/asukaochi/.rvm/rubies/ruby-2.3.1/bin/irb
+Line no     : 1   #11 for file_path
+
+A NameError is raised when a given name is invalid or undefined.
+It raises an exception "NameError: undefined local variable or method 'foo' for main:Object"
+
+To solve the error we could define the class 'DockingStation' that is being assigned
+to the variable 'docking_station'.
