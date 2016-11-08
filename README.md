@@ -69,3 +69,9 @@ The error means that there is no class with a method that has been defined or re
 Therefore the class cannot be found.
 
 Create a file with the class and method to make a DockingStation object. And require this from IRB.
+
+## Exercise 5
+
+Created boris_bike_spec folder and added describe DockingStation do end
+
+## Exercise 6  
