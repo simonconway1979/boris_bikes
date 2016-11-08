@@ -37,10 +37,11 @@ I'd like to see if a bike is working
 | Bike            | is_working    |   
 | Docking Station | releases bike |    
 
-Person 
-  |
+Person -------
+
   | see_if_working (true/false)
-  |
+
+  
 Bike
   |
   | release_bike (if true)
