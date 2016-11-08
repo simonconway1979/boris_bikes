@@ -46,3 +46,26 @@ Bike
   | release_bike (if true)
 
 Docking Station
+
+
+## Exercise 3
+
+We opened IRB and added the following code:
+
+docking_station = DockingStation.new
+
+We got an error.
+
+
+## Exercise 4
+
+Here are details of the error we got from the IRB stack trace:
+
+Error type: NameError: uninitialized constant
+Path: /usr/local/bin/irb
+Line number: 11
+
+The error means that there is no class with a method that has been defined or required.
+Therefore the class cannot be found.
+
+Create a file with the class and method to make a DockingStation object. And require this from IRB.
