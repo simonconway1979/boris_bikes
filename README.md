@@ -77,3 +77,5 @@ Created boris_bike_spec folder and added describe DockingStation do end
 ## Exercise 6  
 
 Run test and it passed.
+
+## Exercise 7
