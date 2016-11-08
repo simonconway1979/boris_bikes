@@ -75,3 +75,5 @@ Create a file with the class and method to make a DockingStation object. And req
 Created boris_bike_spec folder and added describe DockingStation do end
 
 ## Exercise 6  
+
+Run test and it passed.
