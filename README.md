@@ -83,3 +83,19 @@ I want to see a bike that has been docked
 | bike           | dock           |
 | docking station| dock  bike     |
 | docking station| see  bike      |
+
+
+## Changes in Exercise 11
+
+- 1. We added a test to respond to a method called dock_bike.
+The aim of this method is to allow a bike to be docked.
+When a bike is docked a new bike is created in the dock.
+Then we updated the rspec tests so firstly the method dock_bikes was there and then the method dock_bikes returns a new bike.
+
+- 2. We added a test to respond to a method called bike. The aim of this method is to show the bikes in the dock.
+Firstly we added an rspec test to see that there was a method. Then got this test to pass.
+Then we added an rspec test that bike should show the bikes.
+We added an attr reader method so that bike shows the bike.
+
+
+## Exercise 12
