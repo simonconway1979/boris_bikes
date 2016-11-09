@@ -117,4 +117,10 @@ I'd like docking stations not to release bikes when there are none available.
 | :------------- | :------------- |
 | person         |                |
 | docking station| not to release |
-  
+
+## Changes in Exercise 12
+
+- 1. We added a test to raise error when bike is nil and no bike released at docking station.
+- 2. and add if-sentence to check bike variable before release a bike.
+- 3. firstly we put if-sentence in the bracket {} in the spec test. It didn't work. We took it out, and works.
+- 4. We updated the two other tests for release_bike so they passed by adding a bike to the rack before running the test
