@@ -49,3 +49,37 @@ The main thing is that origin and the additional remote are set up the same.
 - 13. When we want to update Asuka's repo, she does a pull request from Simon's repo
 
 *git pull simonconway1979 wednesday*
+
+
+## Exercise 11
+
+### User Story
+
+As a member of the public
+So I can return bikes I've hired
+I want to dock my bike at the docking station
+
+As a member of the public
+So I can decide whether to use the docking station
+I want to see a bike that has been docked
+
+###Nouns
+- member of the public => person
+- bike
+- docking station
+
+###Verbs
+- return
+- hire
+- dock
+- decide
+- use
+- see
+
+###Table
+| Objects        | Messages       |
+| :------------- | :------------- |
+| person         |                |
+| bike           | dock           |
+| docking station| dock  bike     |
+| docking station| see  bike      |
