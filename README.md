@@ -99,3 +99,22 @@ We added an attr reader method so that bike shows the bike.
 
 
 ## Exercise 12
+
+As a member of the public,
+So that I am not confused and charged unnecessarily,
+I'd like docking stations not to release bikes when there are none available.
+
+##Nouns
+- member of the public => person
+- docking station
+- bike
+
+###Verbs
+- not to release
+
+###Table
+| Objects        | Messages       |
+| :------------- | :------------- |
+| person         |                |
+| docking station| not to release |
+  
