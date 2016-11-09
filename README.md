@@ -42,6 +42,7 @@ The main thing is that origin and the additional remote are set up the same.
 - 11. We actually added an incorrect remote so we needed to delete it again:
 
 *git remote -v*
+
 *git remote rm <remote name>*
 
 - 12. We're now set up for gitpong.
