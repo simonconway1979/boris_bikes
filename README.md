@@ -44,4 +44,8 @@ The main thing is that origin and the additional remote are set up the same.
 *git remote -v*
 *git remote rm <remote name>*
 
-- 12.
+- 12. We're now set up for gitpong.
+
+- 13. When we want to update Asuka's repo, she does a pull request from Simon's repo
+
+*git pull simonconway1979 wednesday*
