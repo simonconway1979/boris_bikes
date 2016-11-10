@@ -21,7 +21,7 @@ DEFAULT_CAPACITY = 20
     end
   end
 
-  def dock_bike
+  def dock_bike(broken = false)
     if full?
       raise "The docking station is full"
     else

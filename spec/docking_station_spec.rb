@@ -11,8 +11,8 @@
     it "should return status of bike when Docking station gets a bike after a bike was docked" do
       subject.dock_bike #We dock a bike so there is a bike to release
       bike = subject.release_bike
-      bike_status = bike.working?
-      expect(bike_status).to eq(true)
+
+      expect(bike.working).to eq(true)
     end
     it "responds to the method dock_bike" do
       expect(subject).to respond_to(:dock_bike)
@@ -34,13 +34,28 @@
       expect(subject.capacity).to eq DockingStation::DEFAULT_CAPACITY
     end
 
+
+
     it "when we ask the station for it's capacity after specifying it
     to station. The method should be equal to it's capacity" do
        station = DockingStation.new(5)
        expect(station.capacity).to eq 5
     end
 
+    it "will test whether release bike will release a working bike" do
+      station = DockingStation.new
+      station.dock_bike
+      bike = station.release_bike
+      expect(bike.working).to eq true
+    end
 
+    it "will test whether release bike will release a broken bike" do
+      station = DockingStation.new
+      station.dock_bike
+      bike = station.release_bike
+      bike_condition = bike.working = false
+      expect(bike_condition).to eq false
+    end
   end
 
   describe "Errors" do
