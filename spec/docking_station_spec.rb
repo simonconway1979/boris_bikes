@@ -17,9 +17,9 @@ RSpec.describe DockingStation do
   it "responds to the method dock_bike" do
     expect(subject).to respond_to(:dock_bike)
   end
-  it "should return a bike when a bike was docked" do
+  it "Once bike is docked, bike dock should have bike in it" do
     bike = subject.dock_bike
-    expect(bike).to be_an_instance_of(Bike)
+    expect(bike.count).to eq(1)
   end
   it "responds to the method bike" do
     expect(subject).to respond_to(:bike)
@@ -29,8 +29,13 @@ RSpec.describe DockingStation do
     bike = subject.bike
     expect(bike).to eq(dock_bike)
   end
-  it "should return error when the error method is called" do
+  it "Should return an error when the docking station is empty and we release
+  a bike" do
     expect{ subject.release_bike }.to raise_error("No bikes available")
+  end
+  it "Should return an error when the docking station is full and we dock a bike" do
+    subject.dock_bike
+    expect{ subject.dock_bike }.to raise_error("The docking station is full")
   end
 end
 
