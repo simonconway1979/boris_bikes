@@ -29,8 +29,16 @@
       bike = subject.bike
       expect(bike).to eq(dock_bike)
     end
+    it "When we ask the station for it's capacity it returns it's default
+    capacity unless capacity specified " do
+      expect(subject.capacity).to eq DockingStation::DEFAULT_CAPACITY
+    end
 
-
+    it "when we ask the station for it's capacity after specifying it
+    to station. The method should be equal to it's capacity" do
+       station = DockingStation.new(5)
+       expect(station.capacity).to eq 5
+    end
 
 
   end
