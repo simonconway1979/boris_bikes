@@ -42,36 +42,59 @@
        expect(station.capacity).to eq 5
     end
 
-    it "will test whether release bike will release a working bike" do
-      station = DockingStation.new
-      station.dock_bike
-      bike = station.release_bike
-      expect(bike.working).to eq true
+    it "will all the user to dock a broken bike and show that this bike is broken" do
+      subject.dock_bike(false)
+      docked_bike = subject.bike[-1]
+      expect(docked_bike.working).to eq false
     end
 
-    it "will test whether release bike will release a broken bike" do
-      station = DockingStation.new
-      station.dock_bike
-      bike = station.release_bike
-      bike_condition = bike.working = false
-      expect(bike_condition).to eq false
+    it "will test if the next bike to be released is working" do
+      subject.dock_bike(false)
+      docked_bike = subject.bike[-1]
+      expect(docked_bike.working).to eq false
     end
+
+    it "when a broken bike is next to be released it will release a working one instead" do
+    subject.dock_bike
+    subject.dock_bike(false)
+    released_bike = subject.release_bike
+    expect(released_bike.working).to eq(true)
+  end
+
+  it "checks the dock and returns true if there are working bikes" do
+    subject.dock_bike
+    expect(subject.check_for_working_bike).to eq true
+  end
+
+  it 'checks the dock and returns false if there are no working bikes avaiable' do
+    subject.dock_bike(false)
+    expect(subject.check_for_working_bike).to eq false
+  end
+
+
   end
 
   describe "Errors" do
 
-    station =DockingStation.new
-
-    it "Should return an error when the docking station is empty and we release
+  it "Should return an error when the docking station is empty and we release
     a bike" do
-       expect{ station.release_bike }.to raise_error("No bikes available")
-    end
+    station = DockingStation.new
+    expect{ station.release_bike }.to raise_error("No bikes available")
+  end
 
   it "Should return an error when the docking station is full and we dock a bike" do
+    station = DockingStation.new
     DockingStation::DEFAULT_CAPACITY.times {station.dock_bike}
     expect{ station.dock_bike }.to raise_error("The docking station is full")
   end
+
+  it 'Raises an error when I release a bike and there are no working bikes in the dock' do
+    station = DockingStation.new
+    station.dock_bike(false)
+    expect{ station.release_bike }.to raise_error(RuntimeError, "No bikes avialable")
   end
+
+end
 
   RSpec.describe :release_bike do
     it {is_expected.not_to be_nil}
