@@ -1,78 +1,111 @@
   require 'docking_station'
   require 'bike'
+  require 'garage'
+  require 'van'
 
-  RSpec.describe DockingStation do
-    it {is_expected.to respond_to(:release_bike)}
+  RSpec.describe "release_bike" do
+
+    it "the docking station should repond when asked to release a bike" do
+      station = DockingStation.new
+      expect(station).to respond_to(:release_bike)
+    end
+
     it "should return a bike when a bike is released after a bike was docked" do
-      subject.dock_bike #We dock a bike so there is a bike to release
-      bike = subject.release_bike
+      station = DockingStation.new
+      station.dock_bike #We dock a bike so there is a bike to release
+      bike = station.release_bike
       expect(bike).to be_an_instance_of(Bike)
     end
-    it "should return status of bike when Docking station gets a bike after a bike was docked" do
-      subject.dock_bike #We dock a bike so there is a bike to release
-      bike = subject.release_bike
+
+    it "should return status of bike that is released" do
+      station = DockingStation.new
+      station.dock_bike #We dock a bike so there is a bike to release
+      bike = station.release_bike
 
       expect(bike.working).to eq(true)
     end
+
+        it "will test if the next bike to be released is working" do
+      station = DockingStation.new
+          station.dock_bike(false)
+          docked_bike = station.bike[-1]
+          expect(docked_bike.working).to eq false
+        end
+
+        it "when a broken bike is next to be released it will release a working one instead" do
+      station = DockingStation.new
+        station.dock_bike
+        station.dock_bike(false)
+        released_bike = station.release_bike
+        expect(released_bike.working).to eq(true)
+      end
+end
+
+  RSpec.describe "dock_bike" do
+
     it "responds to the method dock_bike" do
-      expect(subject).to respond_to(:dock_bike)
+      station = DockingStation.new
+      expect(station).to respond_to(:dock_bike)
     end
     it "Once bike is docked, bike dock should have bike in it" do
-      bike = subject.dock_bike
+      station = DockingStation.new
+      bike = station.dock_bike
       expect(bike.count).to eq(1)
     end
+end
+
+
+
+  RSpec.describe "Dock status" do
+
     it "responds to the method bike" do
-      expect(subject).to respond_to(:bike)
+      station = DockingStation.new
+      expect(station).to respond_to(:bike)
     end
-    it "should show the bikes in the dock when we ask to see_bikes" do
-      dock_bike = subject.dock_bike
-      bike = subject.bike
+    it "should show the bikes in the dock when we ask to see bikes" do
+      station = DockingStation.new
+
+      dock_bike = station.dock_bike
+      bike = station.bike
       expect(bike).to eq(dock_bike)
     end
     it "When we ask the station for it's capacity it returns it's default
-    capacity unless capacity specified " do
-      expect(subject.capacity).to eq DockingStation::DEFAULT_CAPACITY
+    capacity when no capacity is specified" do
+      station = DockingStation.new
+      expect(station.capacity).to eq DockingStation::DEFAULT_CAPACITY
     end
-
-
-
-    it "when we ask the station for it's capacity after specifying it
-    to station. The method should be equal to it's capacity" do
+    it "a station with a non default capacity should return the capacity" do
        station = DockingStation.new(5)
        expect(station.capacity).to eq 5
     end
+    it "checks the dock and returns true if there are working bikes" do
+      station = DockingStation.new
+      station.dock_bike
+      expect(station.check_for_working_bike).to eq true
+    end
 
-    it "will all the user to dock a broken bike and show that this bike is broken" do
-      subject.dock_bike(false)
-      docked_bike = subject.bike[-1]
+    it 'checks the dock and returns false if there are no working bikes avaiable' do
+      station = DockingStation.new
+      station.dock_bike(false)
+      expect(station.check_for_working_bike).to eq false
+    end
+
+    it "will show that a docked broken bike is marked as broken" do
+      station = DockingStation.new
+      station.dock_bike(false)
+      docked_bike = station.bike[-1]
       expect(docked_bike.working).to eq false
     end
 
-    it "will test if the next bike to be released is working" do
-      subject.dock_bike(false)
-      docked_bike = subject.bike[-1]
-      expect(docked_bike.working).to eq false
-    end
-
-    it "when a broken bike is next to be released it will release a working one instead" do
-    subject.dock_bike
-    subject.dock_bike(false)
-    released_bike = subject.release_bike
-    expect(released_bike.working).to eq(true)
+    it "will show all of the broken docked bikes" do
+      station = DockingStation.new
+      station.dock_bike(false)
+      station.dock_bike(false)
+      station.dock_bike
+      broken_bikes = station.show_broken_bikes
+      expect(broken_bikes.count).to eq(2)
   end
-
-  it "checks the dock and returns true if there are working bikes" do
-    subject.dock_bike
-    expect(subject.check_for_working_bike).to eq true
-  end
-
-  it 'checks the dock and returns false if there are no working bikes avaiable' do
-    subject.dock_bike(false)
-    expect(subject.check_for_working_bike).to eq false
-  end
-
-
-  end
+end
 
   describe "Errors" do
 

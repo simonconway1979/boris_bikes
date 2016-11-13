@@ -1,11 +1,15 @@
 require_relative 'bike.rb'
+require_relative 'garage.rb'
+require_relative 'van.rb'
+
 
 class DockingStation
 
-  attr_reader :bike, :capacity
+  attr_reader :bike, :capacity, :docking_stations
 
 
 DEFAULT_CAPACITY = 20
+
 
   def initialize(capacity = DEFAULT_CAPACITY)
     @bike = []
@@ -23,6 +27,11 @@ else
   true
 end
 end
+
+def show_broken_bikes
+@bike.select{ |a| a.working == false}
+end
+
 
   def release_bike
     if empty?
@@ -46,6 +55,10 @@ end
       @bike << Bike.new(false)
     end
   end
+
+def van_remove_bikes
+  station.bikes.select!{|a| a.working? == true}
+end
 
   private
 
